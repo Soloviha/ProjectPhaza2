@@ -1,16 +1,16 @@
-import React from 'react'
-import Loader from '../HOC/Loader'
-import { Row } from 'react-bootstrap'
-import NavBar from './ui/NavBar'
-import { Outlet } from 'react-router-dom'
+import React from 'react';
+import { Row } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
+import Loader from '../HOC/Loader';
+import NavBar from './ui/NavBar';
 
-export default function Layout({user, logoutHandler}) {
+export default function Layout({ user, logoutHandler }) {
   return (
     <Loader showSpinner={user.status === 'fetching'}>
-    <Row>
-      <NavBar user={user} logoutHandler={logoutHandler} />
-      <Outlet />
-    </Row>
-  </Loader>
-  )
+      <Row>
+        <NavBar user={user} logoutHandler={logoutHandler} />
+        <Outlet />
+      </Row>
+    </Loader>
+  );
 }
