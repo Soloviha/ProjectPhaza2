@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
-const {Candidate }= require('../../db/models');
+const { Candidate } = require('../../db/models');
 
 const candidateRouter = Router();
 
@@ -82,7 +82,7 @@ candidateRouter
       description,
     } = req.body;
     try {
-      await candidate.update(
+      await Candidate.update(
         {
           img,
           fullName,
@@ -103,6 +103,16 @@ candidateRouter
       res.status(500).send({ message: 'Ошибка изменения данных' });
     }
   });
+
+candidateRouter.route('/status/:id').get(async (req, res) => {
+  const { id } = req.params;
+  try {
+    const statusAll = await Candidate.findAll({where: { statusId: id}})
+    res.status(200).json(statusAll)
+  } catch (error) {
+    res.status(500).send({ message: 'Ошибка получения данных' });
+  }
+});
 
 candidateRouter.route('*').get(async (req, res) => {
   res.status(404).send({ message: 'Такой страницы не найдено!' });
