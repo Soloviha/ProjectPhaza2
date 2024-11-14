@@ -41,7 +41,7 @@ module.exports = {
         userId: 1,
       },
       {
-        img: 'https://yandex.ru/images/search?img_url=https%3A%2F%2Fsun9-49.userapi.com%2Fimpg%2FhyJGtRFyViF-W5Xy4p16gK6UvxhFu9x2o1ZFcQ%2Fr_xAtLCv7RA.jpg%3Fsize%3D900x900%26quality%3D96%26sign%3Df5c81de513cabb343c3a33e8121391e3%26c_uniq_tag%3D0XEaOwbVq2XBntrglhFsa5kiQOFB5FmxR7nTI7UYTAQ%26type%3Dalbum&lr=21641&pos=16&rpt=simage&text=%D0%9A%D1%83%D0%BF%D0%BB%D0%B8%D0%BD%D0%BE%D0%B2%20%D1%84%D0%BE%D1%82%D0%BE',
+        img: 'https://static.tildacdn.com/tild3033-6433-4366-a438-376136383466/DHS_2271_W.jpg',
         fullName: 'Сергей Сергеевич',
         phone: '987654321',
         email: 'petrova@example.com',
@@ -55,7 +55,7 @@ module.exports = {
         userId: 1,
       },
       {
-        img: 'https://example.com/image1.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/541/foto_na_rezyume_1.jpg',
         fullName: 'Петя Иванов',
         phone: '+7 (123) 456-78-90',
         email: 'ivan@example.com',
@@ -69,7 +69,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image2.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/928/foto_na_rezyume_44.jpg',
         fullName: 'Анна Смирнова',
         phone: '+7 (123) 987-65-43',
         email: 'anna@example.com',
@@ -83,7 +83,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image3.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/bb8/foto_na_rezyume_47.jpg',
         fullName: 'Петр Петров',
         phone: '+7 (123) 111-22-33',
         email: 'petr@example.com',
@@ -97,7 +97,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image4.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/f26/foto_na_rezyume_32.jpg',
         fullName: 'Мария Кузнецова',
         phone: '+7 (123) 444-55-66',
         email: 'maria@example.com',
@@ -111,7 +111,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image5.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/66a/foto_na_rezyume_50.jpg',
         fullName: 'Алексей Соловьев',
         phone: '+7 (123) 777-88-99',
         email: 'alexey@example.com',
@@ -125,7 +125,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image6.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/9b4/foto_na_rezyume_27.jpg',
         fullName: 'Елена Федорова',
         phone: '+7 (123) 222-33-44',
         email: 'elena@example.com',
@@ -139,7 +139,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image7.jpg',
+        img: 'https://photocrew.ru/images/phocagallery/biznes/img_7295.jpg',
         fullName: 'Дмитрий Васильев',
         phone: '+7 (123) 555-66-77',
         email: 'dmitry@example.com',
@@ -153,7 +153,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image8.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/4cb/foto_na_rezyume_52.jpg',
         fullName: 'Светлана Николаева',
         phone: '+7 (123) 888-99-00',
         email: 'svetlana@example.com',
@@ -167,7 +167,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image9.jpg',
+        img: 'https://bogdo.studio/assets/images/resources/69/medium/biznes_fotosessiya_muzhchina_biznesmen_v_city_2.jpg',
         fullName: 'Роман Григорьев',
         phone: '+7 (123) 333-44-55',
         email: 'roman@example.com',
@@ -195,7 +195,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image11.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/6b3/foto_na_rezyume_37.jpg',
         fullName: 'Сергей Ковалев',
         phone: '+7 (123) 999-00-11',
         email: 'sergey@example.com',
@@ -209,7 +209,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image12.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/273/foto_na_rezyume_41.jpg',
         fullName: 'Татьяна Степанова',
         phone: '+7 (123) 444-22-11',
         email: 'tatiana@example.com',
@@ -223,7 +223,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image13.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/608/foto_na_rezyume_59.jpg',
         fullName: 'Виктория Лебедева',
         phone: '+7 (123) 555-33-22',
         email: 'victoria@example.com',
@@ -237,7 +237,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image14.jpg',
+        img: 'https://avatars.mds.yandex.net/get-ydo/1523397/2a00000171ca08644d50b40652f528846d16/diploma',
         fullName: 'Артем Михайлов',
         phone: '+7 (123) 888-11-00',
         email: 'artem@example.com',
@@ -251,7 +251,7 @@ module.exports = {
         userId: 1
     },
     {
-        img: 'https://example.com/image15.jpg',
+        img: 'https://photo-ideal.ru/upload/iblock/7de/foto_na_rezyume_4.jpg',
         fullName: 'Наталья Сидорова',
         phone: '+7 (123) 222-44-66',
         email: 'natalya@example.com',
@@ -265,7 +265,7 @@ module.exports = {
         userId: 1
     },
     {
-      img: "link_to_image_1.jpg",
+      img: "https://photocrew.ru/images/phocagallery/resume/jbs_0196.jpg",
       fullName: "Александр Романов",
       phone: "+7 999 111 22 33",
       email: "alexander.romanov@example.com",
@@ -279,7 +279,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_2.jpg",
+      img: "https://avatars.dzeninfra.ru/get-zen_doc/5238100/pub_6132027c4ce7622db0f34346_6132029891e6213386211bfd/scale_1200",
       fullName: "Марина Петрова",
       phone: "+7 999 222 33 44",
       email: "marina.petrova@example.com",
@@ -293,7 +293,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_3.jpg",
+      img: "https://photo-ideal.ru/upload/iblock/7b4/foto_na_rezyume_62.jpg",
       fullName: "Светлана Иванова",
       phone: "+7 999 333 44 55",
       email: "svetlana.ivanova@example.com",
@@ -307,7 +307,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_4.jpg",
+      img: "https://4inovnik.ru/wp-content/uploads/2020/04/%D0%BC%D1%83%D0%B6%D1%87%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D1%84%D0%BE%D1%82%D0%BE.jpg",
       fullName: "Дмитрий Васильев",
       phone: "+7 999 444 55 66",
       email: "dmitry.vasiliev@example.com",
@@ -321,7 +321,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_5.jpg",
+      img: "https://photo-ideal.ru/upload/iblock/54b/foto_na_rezyume_9.jpg",
       fullName: "Евгений Сидоров",
       phone: "+7 999 555 66 77",
       email: "evgeny.sidorov@example.com",
@@ -335,7 +335,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_6.jpg",
+      img: "https://delovoefoto.ru/images/2018-01-22%2014-58-09.jpg?crc=4114336924",
       fullName: "Анна Кузнецова",
       phone: "+7 999 666 77 88",
       email: "anna.kuznetsova@example.com",
@@ -349,7 +349,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_7.jpg",
+      img: "https://photo-ideal.ru/upload/iblock/686/foto_na_rezyume_35.jpg",
       fullName: "Игорь Федоров",
       phone: "+7 999 777 88 99",
       email: "igor.fedorov@example.com",
@@ -363,7 +363,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_8.jpg",
+      img: "https://bogdo.studio/assets/images/resources/69/delovayoy_portret_devushka_v_ofise.jpg",
       fullName: "Ксения Николаева",
       phone: "+7 999 888 99 00",
       email: "kseniya.nikolaeva@example.com",
@@ -377,7 +377,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_9.jpg",
+      img: "https://photo-ideal.ru/upload/iblock/9e5/foto_na_rezyume_14.jpg",
       fullName: "Олег Орлов",
       phone: "+7 999 999 00 11",
       email: "oleg.orlov@example.com",
@@ -391,7 +391,7 @@ module.exports = {
       userId: 1
   },
   {
-      img: "link_to_image_10.jpg",
+      img: "https://photo-ideal.ru/upload/iblock/8a5/foto_na_rezyume_20.jpg",
       fullName: "Татьяна Соколова",
       phone: "+7 999 101 12 23",
       email: "tatiana.sokolova@example.com",
