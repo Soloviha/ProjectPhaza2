@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ProtectedRouter from './HOC/ProtectedRouter';
 import Layout from './components/Layout';
 import useUser from './components/hooks/useUser';
 import HelloPage from './components/pages/HelloPage';
-import ProtectedRouter from './HOC/ProtectedRouter';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
 import CardPage from './components/pages/CardPage';
