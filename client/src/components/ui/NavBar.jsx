@@ -156,6 +156,12 @@ export default function PrimarySearchAppBar({ user, logoutHandler }) {
             >
               Resume
             </Typography>
+          <NavLink
+            to="/candidate"
+            className="nav-link"
+            style={{ color: 'white', marginLeft: '20px' }}
+          >
+            Candidate
           </NavLink>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>

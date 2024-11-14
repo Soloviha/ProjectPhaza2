@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProtectedRouter from './HOC/ProtectedRouter';
 import Layout from './components/Layout';
 import useUser from './components/hooks/useUser';
+import CandidatePage from './components/pages/CandidatePage';
 import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
@@ -18,8 +19,16 @@ function App() {
       children: [
         {
           path: '/',
-          element: <CardPage user={user} />,
+          element: <HelloPage user={user} />,
         },
+        {
+          path: '/candidate',
+          element: <CandidatePage user={user} />,
+        },
+        // {
+        //   path: '/candidate/new',
+        //   element: <CandidateCreate />,
+        // },
         {
           element: (
             <ProtectedRouter
@@ -28,6 +37,7 @@ function App() {
             />
           ),
           children: [
+
             {
               path: '/cards',
               element: <CardPage user={user} />,  
@@ -36,6 +46,14 @@ function App() {
               path: '/cards/new',
               element: <AddNewResume />,
             },
+            // {
+            //   path: '/candidate',
+            //   element: <CandidatePage user={user} />,
+            // },
+            // {
+            //   path: '/cards/new',
+            //   element: <AddCards />,
+            // },
           ],
         },
         {
