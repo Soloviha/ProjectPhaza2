@@ -39,6 +39,7 @@ module.exports = {
         description: 'Опытный кандидат',
         statusId: 1,
         userId: 1,
+        date: null
       },
       {
         img: 'https://static.tildacdn.com/tild3033-6433-4366-a438-376136383466/DHS_2271_W.jpg',
@@ -53,6 +54,7 @@ module.exports = {
         description: 'Ответственный кандидат',
         statusId: 2,
         userId: 1,
+        date: new Date('2024-12-01') 
       },
       {
         img: 'https://photo-ideal.ru/upload/iblock/541/foto_na_rezyume_1.jpg',
@@ -66,7 +68,8 @@ module.exports = {
         salary: 100000,
         description: 'Опытный разработчик с навыками в React и Vue.',
         statusId: 3,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-01')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/928/foto_na_rezyume_44.jpg',
@@ -80,7 +83,8 @@ module.exports = {
         salary: 120000,
         description: 'Специалист по разработке RESTful API на Node.js.',
         statusId: 4,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-21')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/bb8/foto_na_rezyume_47.jpg',
@@ -94,7 +98,8 @@ module.exports = {
         salary: 150000,
         description: 'Анализ данных и машинное обучение.',
         statusId: 5,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-09')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/f26/foto_na_rezyume_32.jpg',
@@ -108,7 +113,8 @@ module.exports = {
         salary: 90000,
         description: 'Дизайнер интерфейсов с опытом работы в Agile.',
         statusId: 6,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-08')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/66a/foto_na_rezyume_50.jpg',
@@ -122,7 +128,8 @@ module.exports = {
         salary: 110000,
         description: 'Опыт в автоматизации процессов CI/CD.',
         statusId: 7,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-05')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/9b4/foto_na_rezyume_27.jpg',
@@ -136,7 +143,8 @@ module.exports = {
         salary: 130000,
         description: 'Управление продуктами и командами разработки.',
         statusId: 8,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-12-01')
     },
     {
         img: 'https://photocrew.ru/images/phocagallery/biznes/img_7295.jpg',
@@ -150,7 +158,8 @@ module.exports = {
         salary: 85000,
         description: 'Тестирование программного обеспечения и автоматизация тестов.',
         statusId: 1,
-        userId: 1
+        userId: 1,
+        date: null
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/4cb/foto_na_rezyume_52.jpg',
@@ -164,7 +173,8 @@ module.exports = {
         salary: 115000,
         description: 'Анализ систем и бизнес-процессов.',
         statusId: 1,
-        userId: 1
+        userId: 1,
+        date: null
     },
     {
         img: 'https://bogdo.studio/assets/images/resources/69/medium/biznes_fotosessiya_muzhchina_biznesmen_v_city_2.jpg',
@@ -178,7 +188,8 @@ module.exports = {
         salary: 95000,
         description: 'Управление сетевой инфраструктурой и безопасностью.',
         statusId: 2,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-11')
     },
     {
         img: 'https://example.com/image10.jpg',
@@ -192,7 +203,8 @@ module.exports = {
         salary: 80000,
         description: 'Разработка маркетинговых стратегий и кампаний.',
         statusId: 3,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-21')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/6b3/foto_na_rezyume_37.jpg',
@@ -206,7 +218,8 @@ module.exports = {
         salary: 90000,
         description: 'Управление продажами и клиентскими отношениями.',
         statusId: 4,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-12-05')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/273/foto_na_rezyume_41.jpg',
@@ -220,7 +233,8 @@ module.exports = {
         salary: 70000,
         description: 'Создание контента и копирайтинг.',
         statusId: 5,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-30')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/608/foto_na_rezyume_59.jpg',
@@ -234,7 +248,8 @@ module.exports = {
         salary: 85000,
         description: 'Дизайн графики и визуальных материалов.',
         statusId: 6,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-11-11')
     },
     {
         img: 'https://avatars.mds.yandex.net/get-ydo/1523397/2a00000171ca08644d50b40652f528846d16/diploma',
@@ -248,7 +263,8 @@ module.exports = {
         salary: 125000,
         description: 'Разработка мобильных приложений на iOS и Android.',
         statusId: 7,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-12-11')
     },
     {
         img: 'https://photo-ideal.ru/upload/iblock/7de/foto_na_rezyume_4.jpg',
@@ -262,7 +278,8 @@ module.exports = {
         salary: 75000,
         description: 'Оптимизация сайтов для поисковых систем.',
         statusId: 8,
-        userId: 1
+        userId: 1,
+        date: new Date('2024-12-21')
     },
     {
       img: "https://photocrew.ru/images/phocagallery/resume/jbs_0196.jpg",
@@ -276,7 +293,8 @@ module.exports = {
       salary: 120000,
       description: "Опыт работы с React, Vue.js и TypeScript.",
       statusId: 1,
-      userId: 1
+      userId: 1,
+      date: null
   },
   {
       img: "https://avatars.dzeninfra.ru/get-zen_doc/5238100/pub_6132027c4ce7622db0f34346_6132029891e6213386211bfd/scale_1200",
@@ -290,7 +308,8 @@ module.exports = {
       salary: 130000,
       description: "Специализация на Python и Django.",
       statusId: 2,
-      userId: 1
+      userId: 1,
+      date: new Date('2024-11-11')
   },
   {
       img: "https://photo-ideal.ru/upload/iblock/7b4/foto_na_rezyume_62.jpg",
@@ -304,7 +323,8 @@ module.exports = {
       salary: 140000,
       description: "Анализ данных и визуализация с использованием Tableau.",
       statusId: 3,
-      userId: 1
+      userId: 1,
+      date: new Date('2024-11-18')
   },
   {
       img: "https://4inovnik.ru/wp-content/uploads/2020/04/%D0%BC%D1%83%D0%B6%D1%87%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D1%84%D0%BE%D1%82%D0%BE.jpg",
@@ -318,7 +338,8 @@ module.exports = {
       salary: 95000,
       description: "Создание интуитивно понятных интерфейсов и прототипов.",
       statusId: 4,
-      userId: 1
+      userId: 1,
+      date: new Date('2024-12-15')
   },
   {
       img: "https://photo-ideal.ru/upload/iblock/54b/foto_na_rezyume_9.jpg",
@@ -332,7 +353,8 @@ module.exports = {
       salary: 115000,
       description: "Опыт работы с AWS и CI/CD.",
       statusId: 5,
-      userId: 1
+      userId: 1,
+      date: new Date('2024-12-03')
   },
   {
       img: "https://delovoefoto.ru/images/2018-01-22%2014-58-09.jpg?crc=4114336924",
@@ -346,7 +368,8 @@ module.exports = {
       salary: 85000,
       description: "Тестирование веб-приложений и написание автоматизированных тестов.",
       statusId: 6,
-      userId: 1
+      userId: 1,
+      date: new Date('2024-11-15')
   },
   {
       img: "https://photo-ideal.ru/upload/iblock/686/foto_na_rezyume_35.jpg",
@@ -360,7 +383,8 @@ module.exports = {
       salary: 150000,
       description: "Работа с JavaScript, Node.js и MongoDB.",
       statusId: 7,
-      userId: 1
+      userId: 1,
+      date: new Date('2024-11-03')
   },
   {
       img: "https://bogdo.studio/assets/images/resources/69/delovayoy_portret_devushka_v_ofise.jpg",
@@ -374,7 +398,8 @@ module.exports = {
       salary: 90000,
       description: "Разработка мобильных приложений на React Native.",
       statusId: 8,
-      userId: 1
+      userId: 1,
+      date: new Date('2024-11-05')
   },
   {
       img: "https://photo-ideal.ru/upload/iblock/9e5/foto_na_rezyume_14.jpg",
@@ -388,7 +413,8 @@ module.exports = {
       salary: 130000,
       description: "Поддержка и администрирование серверов Linux.",
       statusId: 1,
-      userId: 1
+      userId: 1,
+      date: null
   },
   {
       img: "https://photo-ideal.ru/upload/iblock/8a5/foto_na_rezyume_20.jpg",
@@ -402,7 +428,8 @@ module.exports = {
       salary: 110000,
       description: "Анализ бизнес-процессов и составление технических заданий.",
       statusId: 2,
-      userId: 1
+      userId: 1,
+      date: null
   }
     ]);
   },
