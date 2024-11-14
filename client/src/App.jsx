@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProtectedRouter from './HOC/ProtectedRouter';
 import Layout from './components/Layout';
 import useUser from './components/hooks/useUser';
+import CandidatePage from './components/pages/CandidatePage';
 import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
@@ -19,6 +20,10 @@ function App() {
           element: <HelloPage user={user} />,
         },
         {
+          path: '/candidate',
+          element: <CandidatePage user={user} />,
+        },
+        {
           element: (
             <ProtectedRouter
               isAllowed={user.status === 'logged'}
@@ -27,8 +32,8 @@ function App() {
           ),
           children: [
             // {
-            //   path: '/cards',
-            //   element: <CardPage user={user} />,
+            //   path: '/candidate',
+            //   element: <CandidatePage user={user} />,
             // },
             // {
             //   path: '/cards/new',

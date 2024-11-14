@@ -1,6 +1,5 @@
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import SearchIcon from '@mui/icons-material/Search';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -147,6 +146,13 @@ export default function PrimarySearchAppBar({ user, logoutHandler }) {
             >
               HUNTFLOW
             </Typography>
+          </NavLink>
+          <NavLink
+            to="/candidate"
+            className="nav-link"
+            style={{ color: 'white', marginLeft: '20px' }}
+          >
+            Candidate
           </NavLink>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
