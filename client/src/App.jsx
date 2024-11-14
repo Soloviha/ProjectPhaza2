@@ -6,6 +6,7 @@ import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
 import CardPage from './components/pages/CardPage';
+import AddNewResume from './components/pages/AddNewResume';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
@@ -29,12 +30,12 @@ function App() {
           children: [
             {
               path: '/cards',
-              element: <CardPage user={user} />, // потом сюда будет приниматься карточка которую я буду отрисовывать и которая будет принимать размап
+              element: <CardPage user={user} />,  
             },
-            // {
-            //   path: '/cards/new',
-            //   element: <AddCards />,
-            // },
+            {
+              path: '/cards/new',
+              element: <AddNewResume />,
+            },
           ],
         },
         {
