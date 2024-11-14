@@ -10,7 +10,6 @@ import {
   InputLabel,
 } from '@mui/material';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -87,18 +86,18 @@ export default function LoginPage({ signInHandler }) {
               }
             />
           </FormControl>
-          <ButtonGroup
-            className="mb-3"
-            variant={variant}
-            size="medium"
-            color="success"
-            aria-label="success button group"
-          >
-            <Button type="submit" onClick={createOnClick('outlined')}>
-              Sign In
-            </Button>
-          </ButtonGroup>
         </Form>
+        <Button
+          type="submit"
+          className="mb-3"
+          variant={variant}
+          size="medium"
+          color="success"
+          aria-label="success button group"
+          onClick={createOnClick('outlined')}
+        >
+          Sign In
+        </Button>
       </Container>
     </div>
   );

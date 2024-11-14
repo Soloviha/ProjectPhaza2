@@ -112,7 +112,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
         <Stack direction="row" alignItems="center" spacing={1}>
           <VisibilityIcon sx={{ color: '#FB8C00' }} />
           <Typography variant="body2" sx={{ color: '#333333' }}>
-            Status: {candidate.Status.status}
+            Status: {candidate?.Status?.status}
           </Typography>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={1}>
