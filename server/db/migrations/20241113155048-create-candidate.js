@@ -43,7 +43,8 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       statusId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER, 
+        defaultValue: 1,
         references: {
           model: 'Statuses',
           key: 'id',

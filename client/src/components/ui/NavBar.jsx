@@ -147,6 +147,15 @@ export default function PrimarySearchAppBar({ user, logoutHandler }) {
               HUNTFLOW
             </Typography>
           </NavLink>
+          <NavLink to="/cards/new" className="nav-link">
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: 'none', sm: 'block' }, color: 'white' }}
+            >
+              Resume
+            </Typography>
           <NavLink
             to="/candidate"
             className="nav-link"
