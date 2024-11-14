@@ -16,6 +16,8 @@ export default function CandidatePage() {
     }
   }, []);
 
+  console.log(candidate);
+
   const createHandler = async (e) => {
     try {
       e.preventDefault();
