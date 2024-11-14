@@ -106,6 +106,8 @@ candidateRouter
       const updateCandidate = await Candidate.findByPk(id);
       res.status(201).json(updateCandidate);
     } catch (error) {
+      console.log(error);
+      
       res.status(500).send({ message: 'Ошибка изменения данных' });
     }
   });
@@ -123,10 +125,10 @@ candidateRouter
   })
   .put(verifyAccessToken, async (req, res) => {
     const { id } = req.params;
-    const { statusId, date } = req.body;
+    const { statusId } = req.body;
     try {
       await Candidate.update(
-        { statusId, date },
+        { statusId},
         { where: { id, userId: res.locals.user.id } },
       );
       const updateStatus = await Candidate.findByPk(id);
