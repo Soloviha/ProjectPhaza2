@@ -7,16 +7,43 @@ export default function CandidatePage() {
   const [candidate, setCandidate] = useState([]);
   useEffect(() => {
     try {
-      fetch('/api/cards')
-        .then((res) => res.json())
-        .then((data) => {
-          setCandidate(data);
-        });
+      axiosInstance.get(`/cards`).then(({ data }) => {
+        setCandidate(data);
+      });
     } catch (error) {
       console.log({ message: error });
       alert('Что-то пошло не так');
     }
   }, []);
+
+  const createHandler = async (e) => {
+    try {
+      e.preventDefault();
+      const newCard = Object.fromEntries(new FormData(e.target));
+      const res = await axiosInstance.post('/cards', newCard);
+      if (res.status === 200) {
+        setCandidate((value) => [...value, res.data]);
+      }
+    } catch (error) {
+      console.log({ message: error });
+      alert('Что-то пошло не так!');
+    }
+  };
+
+  const updateHandler = async (e, id) => {
+    try {
+      e.preventDefault();
+      const data = e.target;
+      const newData = Object.fromEntries(new FormData(data));
+      const res = await axiosInstance.put(`/cards/${id}`, newData);
+      const newCandidate = await res.data;
+      setCandidate((prev) => prev.map((el) => (el.id === id ? newCandidate : el)));
+      e.target.reset();
+    } catch (error) {
+      console.log({ message: error });
+      alert('Что-то пошло не так!');
+    }
+  };
 
   const deleteHandler = async (id) => {
     try {
@@ -26,21 +53,7 @@ export default function CandidatePage() {
       }
     } catch (error) {
       console.log({ message: error });
-      alert('Что-то пошло не так');
-    }
-  };
-
-  const createHandler = async (e) => {
-    e.preventDefault();
-    const newCard = Object.fromEntries(new FormData(e.target));
-    try {
-      const res = await axiosInstance.post('/cards', newCard);
-      if (res.status === 200) {
-        setCandidate((value) => [...value, res.data]);
-      }
-    } catch (error) {
-      console.log({ message: error });
-      alert('Что-то пошло не так');
+      alert('Что-то пошло не так!');
     }
   };
 
@@ -52,9 +65,9 @@ export default function CandidatePage() {
             <CandidateCard
               key={el.id}
               candidate={el}
-              // updateHandler={updateHandler}
-              deleteHandler={deleteHandler}
               createHandler={createHandler}
+              deleteHandler={deleteHandler}
+              updateHandler={updateHandler}
             />
           ))}
         </Row>

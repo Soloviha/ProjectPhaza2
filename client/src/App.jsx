@@ -23,6 +23,10 @@ function App() {
           path: '/candidate',
           element: <CandidatePage user={user} />,
         },
+        // {
+        //   path: '/candidate/new',
+        //   element: <CandidateCreate />,
+        // },
         {
           element: (
             <ProtectedRouter

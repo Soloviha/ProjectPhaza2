@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
-const {Candidate }= require('../../db/models');
+const { Candidate } = require('../../db/models');
 
 const candidateRouter = Router();
 
@@ -67,7 +67,7 @@ candidateRouter
       res.status(500).send({ message: 'Ошибка удаления резюме' });
     }
   })
-  .put(async (req, res) => {
+  .put(verifyAccessToken, async (req, res) => {
     const { id } = req.params;
     const {
       img,
@@ -82,7 +82,7 @@ candidateRouter
       description,
     } = req.body;
     try {
-      await candidate.update(
+      await Candidate.update(
         {
           img,
           fullName,
@@ -100,6 +100,8 @@ candidateRouter
       const updateCandidate = await Candidate.findByPk(id);
       res.status(201).json(updateCandidate);
     } catch (error) {
+      console.log(error);
+
       res.status(500).send({ message: 'Ошибка изменения данных' });
     }
   });
