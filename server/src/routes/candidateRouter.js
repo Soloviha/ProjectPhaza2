@@ -8,11 +8,11 @@ candidateRouter
   .route('/')
   .get(async (req, res) => {
     try {
-      const candidateAll = await Candidate.findAll({ include: [{model: Status, attributes: ['status']}]});
+      const candidateAll = await Candidate.findAll({
+        include: [{ model: Status, attributes: ['status'] }],
+      });
       res.status(200).json(candidateAll);
     } catch (error) {
-      console.log(error);
-      
       res.status(500).send({ message: 'Ошибка получения данных' });
     }
   })
@@ -69,7 +69,7 @@ candidateRouter
       res.status(500).send({ message: 'Ошибка удаления резюме' });
     }
   })
-  .put(async (req, res) => {
+  .put(verifyAccessToken, async (req, res) => {
     const { id } = req.params;
     const {
       img,
@@ -120,10 +120,11 @@ candidateRouter
   .put(verifyAccessToken, async (req, res) => {
     const { id } = req.params;
     const { statusId, date } = req.body;
-    console.log(date)
-    
     try {
-      await Candidate.update({ statusId, date }, { where: { id, userId: res.locals.user.id } });
+      await Candidate.update(
+        { statusId, date },
+        { where: { id, userId: res.locals.user.id } },
+      );
       const updateStatus = await Candidate.findByPk(id);
       if (!updateStatus) {
         res.status(404).json({ message: 'Ошибка изменения статусв' });

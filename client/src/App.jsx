@@ -2,10 +2,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProtectedRouter from './HOC/ProtectedRouter';
 import Layout from './components/Layout';
 import useUser from './components/hooks/useUser';
+import CandidatePage from './components/pages/CandidatePage';
 import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
-import CardPage from './components/pages/CardPage';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
@@ -20,6 +20,14 @@ function App() {
           element: <HelloPage user={user} />,
         },
         {
+          path: '/candidate',
+          element: <CandidatePage user={user} />,
+        },
+        // {
+        //   path: '/candidate/new',
+        //   element: <CandidateCreate />,
+        // },
+        {
           element: (
             <ProtectedRouter
               isAllowed={user.status === 'logged'}
@@ -27,10 +35,10 @@ function App() {
             />
           ),
           children: [
-            {
-              path: '/cards',
-              element: <CardPage user={user} />, // потом сюда будет приниматься карточка которую я буду отрисовывать и которая будет принимать размап
-            },
+            // {
+            //   path: '/candidate',
+            //   element: <CandidatePage user={user} />,
+            // },
             // {
             //   path: '/cards/new',
             //   element: <AddCards />,
