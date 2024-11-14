@@ -1,6 +1,4 @@
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {
   Box,
   FormControl,
@@ -8,19 +6,23 @@ import {
   Input,
   InputAdornment,
   InputLabel,
+  OutlinedInput,
 } from '@mui/material';
 import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from '@mui/icons-material/Visibility';
 
 export default function LoginPage({ signInHandler }) {
   const [variant, setVariant] = React.useState('outlined');
-  const [showPassword, setShowPassword] = React.useState(false);
-
   const createOnClick = (value) => () => {
     setVariant(value);
   };
+
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -86,18 +88,18 @@ export default function LoginPage({ signInHandler }) {
               }
             />
           </FormControl>
+          <ButtonGroup
+            className="mb-3"
+            variant={variant}
+            size="medium"
+            color="success"
+            aria-label="success button group"
+          >
+            <Button type="submit" onClick={createOnClick('outlined')}>
+              Sign In
+            </Button>
+          </ButtonGroup>
         </Form>
-        <Button
-          type="submit"
-          className="mb-3"
-          variant={variant}
-          size="medium"
-          color="success"
-          aria-label="success button group"
-          onClick={createOnClick('outlined')}
-        >
-          Sign In
-        </Button>
       </Container>
     </div>
   );
