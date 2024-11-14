@@ -60,20 +60,32 @@ export default function CandidatePage() {
   };
 
   return (
-    <>
+    <div
+      style={{
+        height: '100%',
+        backgroundImage: 'url("../../../public/IMG_1846.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <Container className="d-flex justify-content-center align-items-center mt-5">
-        <Row>
+        <div className="row">
           {candidate.map((el) => (
-            <CandidateCard
-              key={el.id}
-              candidate={el}
-              createHandler={createHandler}
-              deleteHandler={deleteHandler}
-              updateHandler={updateHandler}
-            />
+            <div className="col-6" key={el.id}>
+              <CandidateCard
+                candidate={el}
+                createHandler={createHandler}
+                deleteHandler={deleteHandler}
+                updateHandler={updateHandler}
+              />
+            </div>
           ))}
-        </Row>
+        </div>
       </Container>
-    </>
+    </div>
   );
 }
