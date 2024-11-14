@@ -6,6 +6,8 @@ import CandidatePage from './components/pages/CandidatePage';
 import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
+import CardPage from './components/pages/CardPage';
+import AddNewResume from './components/pages/AddNewResume';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
@@ -35,6 +37,15 @@ function App() {
             />
           ),
           children: [
+
+            {
+              path: '/cards',
+              element: <CardPage user={user} />,  
+            },
+            {
+              path: '/cards/new',
+              element: <AddNewResume />,
+            },
             // {
             //   path: '/candidate',
             //   element: <CandidatePage user={user} />,
