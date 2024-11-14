@@ -34,7 +34,7 @@ module.exports = {
         salary: 70000,
         description: 'Ответственный кандидат',
         statusId: 1,
-        userId: 2,
+        userId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
