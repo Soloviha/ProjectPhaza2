@@ -16,7 +16,7 @@ export default function useUser() {
         setUser({ status: 'guest', data: null });
         setAccessToken('');
       });
-  }, []);
+  }, []); // отслеживает изменения каких-либо данных на странице (отрисовывает без перезагрузки)
 
   const logoutHandler = () => {
     axiosInstance
