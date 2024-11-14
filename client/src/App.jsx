@@ -6,6 +6,7 @@ import CandidatePage from './components/pages/CandidatePage';
 import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
+import OneCandidate from './components/ui/OneCandidate';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
@@ -63,6 +64,10 @@ function App() {
             },
           ],
         },
+      {
+        path: '/onecandidate/:candidateId',
+        element: <OneCandidate/>
+      }
       ],
     },
   ]);
