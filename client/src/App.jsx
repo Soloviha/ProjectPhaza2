@@ -17,7 +17,7 @@ function App() {
       children: [
         {
           path: '/',
-          element: <CardPage user={user} />,
+          element: <HelloPage user={user} />,
         },
         {
           element: (

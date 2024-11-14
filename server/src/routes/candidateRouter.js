@@ -119,9 +119,11 @@ candidateRouter
   })
   .put(verifyAccessToken, async (req, res) => {
     const { id } = req.params;
-    const { statusId } = req.body;
+    const { statusId, date } = req.body;
+    console.log(date)
+    
     try {
-      await Candidate.update({ statusId }, { where: { id, userId: res.locals.user.id } });
+      await Candidate.update({ statusId, date }, { where: { id, userId: res.locals.user.id } });
       const updateStatus = await Candidate.findByPk(id);
       if (!updateStatus) {
         res.status(404).json({ message: 'Ошибка изменения статусв' });

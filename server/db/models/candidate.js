@@ -26,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     salary: DataTypes.INTEGER,
     description: DataTypes.TEXT,
     statusId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    datе: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Candidate',

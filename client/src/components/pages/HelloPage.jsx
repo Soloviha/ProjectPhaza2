@@ -6,7 +6,7 @@ export default function MainPage() {
     <Box
       sx={{
         height: '95vh',
-        backgroundImage: 'url("../../../public/IMG_1847.jpg")',
+        backgroundImage: 'url("../../../public/cleaned_desk_no_logo(2).png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
