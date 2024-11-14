@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({Status, User}) {
-      this.belongsTo(Status, {foreignKey: 'statusId', as: 'status'})
-      this.belongsTo(User, {foreignKey: 'userId', as: 'user'})
+      this.belongsTo(Status, {foreignKey: 'statusId'})
+      this.belongsTo(User, {foreignKey: 'userId'})
     }
   }
   Candidate.init({
