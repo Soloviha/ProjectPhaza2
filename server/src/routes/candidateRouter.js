@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
+const {Candidate }= require('../../db/models');
 
 const candidateRouter = Router();
 
@@ -7,7 +8,7 @@ candidateRouter
   .route('/')
   .get(async (req, res) => {
     try {
-      const candidateAll = await Candidate.findall();
+      const candidateAll = await Candidate.findAll();
       res.status(200).json(candidateAll);
     } catch (error) {
       res.status(500).send({ message: 'Ошибка получения данных' });
@@ -81,7 +82,7 @@ candidateRouter
       description,
     } = req.body;
     try {
-      await Candidate.update(
+      await candidate.update(
         {
           img,
           fullName,
