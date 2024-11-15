@@ -1,9 +1,9 @@
-import CreateNewRes from '../ui/CreateNewRes'
+import CreateNewRes from '../ui/CandidateCreate';
 
 export default function AddNewResume() {
   return (
     <div>
-        <CreateNewRes />
+      <CreateNewRes />
     </div>
-  )
+  );
 }

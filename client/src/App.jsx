@@ -6,8 +6,7 @@ import CandidatePage from './components/pages/CandidatePage';
 import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
-import CardPage from './components/pages/CardPage';
-import AddNewResume from './components/pages/AddNewResume';
+import CandidateCreate from './components/ui/CandidateCreate';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
@@ -25,10 +24,10 @@ function App() {
           path: '/candidate',
           element: <CandidatePage user={user} />,
         },
-        // {
-        //   path: '/candidate/new',
-        //   element: <CandidateCreate />,
-        // },
+        {
+          path: '/candidate/new',
+          element: <CandidateCreate />,
+        },
         {
           element: (
             <ProtectedRouter
@@ -37,15 +36,14 @@ function App() {
             />
           ),
           children: [
-
-            {
-              path: '/cards',
-              element: <CardPage user={user} />,  
-            },
-            {
-              path: '/cards/new',
-              element: <AddNewResume />,
-            },
+            // {
+            //   path: '/cards',
+            //   element: <CardPage user={user} />,
+            // },
+            // {
+            //   path: '/cards/new',
+            //   element: <AddNewResume />,
+            // },
             // {
             //   path: '/candidate',
             //   element: <CandidatePage user={user} />,

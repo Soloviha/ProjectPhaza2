@@ -135,8 +135,11 @@ export default function PrimarySearchAppBar({ user, logoutHandler }) {
   return (
     <Box sx={{ flexGrow: 1, overflow: 'hidden' }}>
       <AppBar position="static" sx={{ backgroundColor: 'black' }}>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          {' '}
+        <Toolbar
+          sx={{
+            justifyContent: 'space-between',
+          }}
+        >
           <NavLink to="/" className="nav-link">
             <Typography
               variant="h6"
@@ -147,21 +150,19 @@ export default function PrimarySearchAppBar({ user, logoutHandler }) {
               HUNTFLOW
             </Typography>
           </NavLink>
-          <NavLink to="/cards/new" className="nav-link">
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: 'none', sm: 'block' }, color: 'white' }}
-            >
-              Resume
-            </Typography>
           <NavLink
             to="/candidate"
             className="nav-link"
             style={{ color: 'white', marginLeft: '20px' }}
           >
             Candidate
+          </NavLink>
+          <NavLink
+            to="/candidate/new'"
+            className="nav-link"
+            style={{ color: 'white', marginLeft: '20px' }}
+          >
+            New Candidate
           </NavLink>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>

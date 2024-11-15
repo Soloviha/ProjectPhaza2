@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import axiosInstance from '../../api/axiosInstance';
@@ -15,8 +16,6 @@ export default function CandidatePage() {
       alert('Что-то пошло не так');
     }
   }, []);
-
-  console.log(candidate);
 
   const createHandler = async (e) => {
     try {
@@ -60,9 +59,17 @@ export default function CandidatePage() {
   };
 
   return (
-    <>
-      <Container className="d-flex justify-content-center align-items-center mt-5">
-        <Row>
+    <Box
+      sx={{
+        minHeight: 'calc(100vh - 64px)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        paddingTop: { xs: '56px', sm: '64px' },
+      }}
+    >
+      <Container className="py-5">
+        <Row className="g-4 justify-content-center">
           {candidate.map((el) => (
             <CandidateCard
               key={el.id}
@@ -74,6 +81,6 @@ export default function CandidatePage() {
           ))}
         </Row>
       </Container>
-    </>
+    </Box>
   );
 }

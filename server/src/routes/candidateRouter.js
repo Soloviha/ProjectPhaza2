@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
-const { Candidate } = require('../../db/models');
+const { Candidate, Status } = require('../../db/models');
 
 const candidateRouter = Router();
 
@@ -29,7 +29,7 @@ candidateRouter
         experience,
         salary,
         description,
-        statusId
+        statusId,
       } = req.body;
       const newCandidate = await Candidate.create({
         img,
@@ -48,7 +48,7 @@ candidateRouter
       res.status(200).json(newCandidate);
     } catch (error) {
       console.log(error);
-      
+
       res.status(500).send({ message: 'Ошибка создания резюме' });
     }
   });

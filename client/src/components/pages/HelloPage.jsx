@@ -5,23 +5,27 @@ export default function MainPage() {
   return (
     <Box
       sx={{
-        height: '95vh',
-        backgroundImage: 'url("../../../public/cleaned_desk_no_logo(2).png")',
+        position: 'fixed',
+        top: { xs: '56px', sm: '64px' },
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'url("../../../public/3h-media-unsplash.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        overflow: 'hidden',
       }}
     >
       <Container
         sx={{
-          mt: 0,
-          mb: 5,
+          maxWidth: '400px',
+          padding: '2rem',
+          backgroundColor: 'rgba(181, 181, 181, 0.9)',
           borderRadius: '8px',
-          padding: '20px',
         }}
       >
         <Typography

@@ -33,20 +33,25 @@ export default function LoginPage({ signInHandler }) {
   };
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        backgroundImage: 'url("../../../public/IMG_1846.jpg")',
+    <Box
+      sx={{
+        position: 'fixed',
+        top: { xs: '56px', sm: '64px' },
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'url("../../../public/2h-media-unsplash.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        overflow: 'hidden',
       }}
     >
       <Container
-        style={{
+        sx={{
           maxWidth: '400px',
           padding: '2rem',
           backgroundColor: 'rgba(230, 230, 230, 0.9)',
@@ -116,6 +121,6 @@ export default function LoginPage({ signInHandler }) {
           </Box>
         </Form>
       </Container>
-    </div>
+    </Box>
   );
 }
