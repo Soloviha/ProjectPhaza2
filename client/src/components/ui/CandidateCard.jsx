@@ -3,7 +3,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import WatchLaterRoundedIcon from '@mui/icons-material/WatchLaterRounded';
 import WorkIcon from '@mui/icons-material/Work';
-import Stack from '@mui/joy/Stack';
+// import Stack from '@mui/joy/Stack';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -14,6 +14,8 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useState } from 'react';
 import CandidateUpdate from './CandidateUpdate';
+import { Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function CandidateCard({ candidate, deleteHandler, updateHandler }) {
   const [variant, setVariant] = React.useState('outlined');
@@ -112,7 +114,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
         <Stack direction="row" alignItems="center" spacing={1}>
           <VisibilityIcon sx={{ color: '#FB8C00' }} />
           <Typography variant="body2" sx={{ color: '#333333' }}>
-            Status: {candidate.Status.status}
+            Status: {candidate?.Status?.status}
           </Typography>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={1}>
@@ -123,16 +125,17 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
         </Stack>
         <Stack spacing={1} sx={{ alignItems: 'center' }}>
           <ButtonGroup size="lg" aria-label="soft button group">
-            <Button
-              variant={variant}
-              size="sm"
-              color="error"
-              aria-label="danger button group"
-              onClick={createOnClick('outlined')}
-              onClick={() => deleteHandler(candidate.id)}
-            >
-              Delete
-            </Button>
+            <Link to={`/onecandidate/${candidate.id}`}>
+              <Button
+                variant={variant}
+                size="sm"
+                color="error"
+                aria-label="danger button group"
+                onClick={createOnClick('outlined')}
+              >
+                Подробнее
+              </Button>
+            </Link>
             <Button
               variant={variant}
               size="sm"
@@ -143,6 +146,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
             >
               Edit
             </Button>
+
             <Button
               variant={variant}
               size="sm"
