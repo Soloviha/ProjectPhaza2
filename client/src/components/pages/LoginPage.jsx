@@ -33,21 +33,25 @@ export default function LoginPage({ signInHandler }) {
   };
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        backgroundImage: 'url("../../../public/IMG_1846.jpg")',
+    <Box
+      sx={{
+        position: 'fixed',
+        top: { xs: '56px', sm: '64px' },
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'url("../../../public/2h-media-unsplash.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        overflow: 'hidden',
       }}
     >
       <Container
-        style={{
-          maxWidth: '400px',
+        sx={{
           padding: '2rem',
           backgroundColor: 'rgba(230, 230, 230, 0.9)',
           borderRadius: '8px',
@@ -63,7 +67,7 @@ export default function LoginPage({ signInHandler }) {
               width: '100%',
             }}
           >
-            <FormControl variant="standard" sx={{ width: '100%' }} type="email">
+            <FormControl variant="standard" sx={{ width: '40%' }} type="email">
               <InputLabel htmlFor="email-input">Введите email</InputLabel>
               <Input
                 name="email"
@@ -76,7 +80,7 @@ export default function LoginPage({ signInHandler }) {
               />
             </FormControl>
 
-            <FormControl variant="standard" sx={{ width: '100%' }} name="password">
+            <FormControl variant="standard" sx={{ width: '40%' }} name="password">
               <InputLabel htmlFor="password-input">Введите пароль</InputLabel>
               <Input
                 name="password"
@@ -104,6 +108,7 @@ export default function LoginPage({ signInHandler }) {
               fullWidth
               onClick={createOnClick('outlined')}
               sx={{
+                width: '40%',
                 backgroundColor: 'black',
                 color: 'white',
                 '&:hover': {
@@ -116,6 +121,6 @@ export default function LoginPage({ signInHandler }) {
           </Box>
         </Form>
       </Container>
-    </div>
+    </Box>
   );
 }

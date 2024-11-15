@@ -5,10 +5,9 @@ import useUser from './components/hooks/useUser';
 import CandidatePage from './components/pages/CandidatePage';
 import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
+import NewCandidate from './components/pages/NewCandidate';
 import SignUpPage from './components/pages/SignUpPage';
 import OneCandidate from './components/ui/OneCandidate';
-
-import AddNewResume from './components/pages/AddNewResume';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
@@ -26,10 +25,14 @@ function App() {
           path: '/candidate',
           element: <CandidatePage user={user} />,
         },
-        // {
-        //   path: '/candidate/new',
-        //   element: <CandidateCreate />,
-        // },
+        {
+          path: '/candidate/:candidateId',
+          element: <OneCandidate />,
+        },
+        {
+          path: '/candidate/new',
+          element: <NewCandidate />,
+        },
         {
           element: (
             <ProtectedRouter
@@ -40,30 +43,13 @@ function App() {
           children: [
             // {
             //   path: '/cards',
-            //   element: <CardPage user={user} />,  
-            // },
-            {
-              path: '/cards/new',
-              element: <AddNewResume />,
-            },
-            // {
-            //   path: '/candidate',
-            //   element: <CandidatePage user={user} />,
-            // },
-            // {
-            //   path: '/cards/new',
-            //   element: <AddCards />,
+            //   element: <CardPage user={user} />,
             // },
           ],
         },
         {
           element: <ProtectedRouter isAllowed={user.status !== 'logged'} redirect="/" />,
           children: [
-            // {
-            //   path: '/cards',
-            //   element: <CardPage user={user} />,
-            // },
-
             {
               path: '/account/new',
               element: <SignUpPage signUpHandler={signUpHandler} />,
@@ -74,10 +60,6 @@ function App() {
             },
           ],
         },
-      {
-        path: '/onecandidate/:candidateId',
-        element: <OneCandidate/>
-      }
       ],
     },
   ]);
