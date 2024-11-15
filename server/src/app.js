@@ -19,7 +19,7 @@ app.use('/api/account', authRouter);
 app.use('/api/tokens', tokensRouter);
 app.use('/api/cards', candidateRouter);
 app.use('/api/upload-pdf', addCandidateRouter);
-app.use('/api/statuses', statusRouter)
+app.use('/api/statuses', statusRouter);
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 app.get('/*', (req, res) => {

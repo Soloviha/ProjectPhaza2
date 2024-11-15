@@ -27,7 +27,6 @@ export default function NewCandidate() {
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
           margin: '2rem auto',
           overflow: 'auto',
-          maxHeight: 'calc(100vh - 100px)',
         }}
       >
         <CandidateCreate />

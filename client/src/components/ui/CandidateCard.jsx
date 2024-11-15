@@ -29,20 +29,19 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        margin: '20px',
-        marginLeft: '150px',
+        margin: '80px',
         maxWidth: 600,
         borderRadius: 3,
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-        background: 'rgba(255, 255, 255, 0.8)', // Полупрозрачный белый фон
-        backdropFilter: 'blur(8px)', // Эффект размытия фона
+        background: 'rgba(255, 255, 255, 0.8)',
+        backdropFilter: 'blur(8px)',
         overflow: 'hidden',
         transition: 'all 0.3s ease',
-        border: '1px solid rgba(176, 176, 176, 0.5)', // Полупрозрачная граница
+        border: '1px solid rgba(176, 176, 176, 0.5)',
         '&:hover': {
           transform: 'scale(1.03)',
           boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15)',
-          background: 'rgba(255, 255, 255, 0.9)', // Более непрозрачный при наведении
+          background: 'rgba(255, 255, 255, 0.9)',
         },
       }}
     >
@@ -55,9 +54,9 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'column', // Изменено на колонку
-            alignItems: 'center', // Центрирование по горизонтали
-            textAlign: 'center', // Центрирование текста
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
           }}
         >
           <CardMedia
@@ -69,7 +68,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
               filter: 'grayscale(50%)',
               transition: 'filter 0.3s ease',
               '&:hover': { filter: 'grayscale(30%)' },
-              marginBottom: 2, // Отступ снизу от фото
+              marginBottom: 2,
             }}
             image={candidate.img}
             alt="Фото профиля"
@@ -83,7 +82,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
                 color: '#000000',
                 padding: '4px 12px',
                 borderRadius: 2,
-                textAlign: 'center', // Дополнительное центрирование текста
+                textAlign: 'center',
               }}
             >
               {candidate.fullName}
@@ -94,7 +93,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
               component="div"
               sx={{
                 color: '#333333',
-                textAlign: 'center', // Дополнительное центрирование текста
+                textAlign: 'center',
               }}
             >
               {candidate.speciality}
@@ -137,14 +136,14 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
             Date of creation: {candidate?.createdAt?.slice(0, 10)}
           </Typography>
         </Stack>
-        <Stack spacing={1} sx={{ alignItems: 'center' }}>
+        <Stack spacing={1} sx={{ alignItems: 'center', marginBottom: 1 }}>
           <ButtonGroup size="lg" aria-label="soft button group">
             <Link to={`/candidate/${candidate.id}`}>
               <Button
                 variant={variant}
                 size="sm"
                 color="success"
-                aria-label="danger button group"
+                aria-label="success button group"
                 onClick={createOnClick('outlined')}
               >
                 More
@@ -154,7 +153,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
               variant={variant}
               size="sm"
               color="warning"
-              aria-label="danger button group"
+              aria-label="warning button group"
               onClick={createOnClick('outlined')}
               onClick={() => setShow((prev) => !prev)}
             >
