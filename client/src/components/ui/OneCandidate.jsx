@@ -1,20 +1,22 @@
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import DescriptionIcon from '@mui/icons-material/Description';
 import EmailIcon from '@mui/icons-material/Email';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import WatchLaterRoundedIcon from '@mui/icons-material/WatchLaterRounded';
 import WorkIcon from '@mui/icons-material/Work';
+import { Button, Card, Container, Menu, MenuItem, Stack } from '@mui/material';
 import Box from '@mui/material/Box';
-// import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { useState } from 'react';
-import { Button, Card, Menu, MenuItem, Stack } from '@mui/material';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axiosInstance from '../../api/axiosInstance';
-import { useEffect } from 'react';
 
 export default function OneCandidate() {
   const [variant, setVariant] = React.useState('outlined');
@@ -53,23 +55,17 @@ export default function OneCandidate() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(statuses);
-
   useEffect(() => {
     const fetchCandidate = async () => {
       try {
         const response = await axiosInstance.get(`/cards/${candidateId}`);
-        // console.log(response);
-
-        setStatus(response.data.statusId); // Предполагаем, что статус имеет поле name
+        setStatus(response.data.statusId);
       } catch (error) {
         console.error('Ошибка получения кандидата:', error);
       }
     };
     fetchCandidate();
   }, [candidateId]);
-
-  console.log(status);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -81,166 +77,306 @@ export default function OneCandidate() {
   const handleStatusChange = async (newStatus) => {
     try {
       await axiosInstance.put(`/cards/status/${candidateId}`, { statusId: newStatus.id });
-      setStatus(newStatus.status); 
-      handleClose(); 
+      setStatus(newStatus.status);
+      handleClose();
     } catch (error) {
       console.error('Ошибка изменения статуса:', error);
     }
   };
 
-
-
   return (
-    <>
-      <Card>
-        <Box
-          sx={{
-            background: '#f5f5f5',
-            padding: '86px',
-          }}
-        >
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <CardMedia
-              component="img"
-              sx={{
-                width: '230px',
-                height: '230px',
-                borderRadius: 1,
-                filter: 'grayscale(50%)',
-                transition: 'filter 0.3s ease',
-                '&:hover': { filter: 'grayscale(30%)' },
-              }}
-              image={cards.img}
-              alt="Фото профиля"
-            />
-
-            <Box sx={{ marginLeft: 14 }}>
-              <Typography
-                variant="h5"
-                component="div"
-                sx={{
-                  color: '#000000',
-                  padding: '4px 12px',
-                  borderRadius: 2,
-                }}
-              >
-                {cards.fullName}
-              </Typography>
-              <Typography
-                gutterBottom
-                variant="h6"
-                component="div"
-                sx={{ color: '#333333' }}
-              >
-                {cards.speciality}
-              </Typography>
-            </Box>
+    <Box
+      sx={{
+        minHeight: '100vh',
+        paddingTop: { xs: '56px', sm: '64px' },
+        backgroundImage: 'url("../../../public/2h-media-unsplash.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+      }}
+    >
+      <Container
+        maxWidth="lg"
+        sx={{
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          borderRadius: '16px',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+          overflow: 'auto',
+          maxHeight: 'calc(100vh - 100px)',
+        }}
+      >
+        <Card>
+          <Box
+            sx={{
+              background:
+                'linear-gradient(to right, rgba(245, 245, 245, 0.9), rgba(250, 250, 250, 0.9))',
+              padding: '40px',
+              borderRadius: '12px 12px 0 0',
+              boxShadow: 'inset 0 -1px 0 rgba(0,0,0,0.1)',
+            }}
+          >
             <Box
               sx={{
                 display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                margin: 2,
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 4,
               }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#333' }}>
-                Статус кандидата
-              </Typography>
-              <Button
-                onClick={handleClick}
-                variant="outlined"
+              <CardMedia
+                component="img"
                 sx={{
-                  color: '#fff', 
-                  borderColor: '#000', 
-                  '&:hover': { borderColor: '#333', backgroundColor: '#f0f0f' },
-                  borderRadius: 2,
-                  padding: '10px 20px',
-                  textTransform: 'none',
-                  fontWeight: 'bold',
-                  backgroundColor: '#000', 
+                  width: '200px',
+                  height: '200px',
+                  borderRadius: '12px',
+                  filter: 'grayscale(40%)',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                  '&:hover': {
+                    filter: 'grayscale(0%)',
+                    transform: 'scale(1.02)',
+                  },
+                }}
+                image={cards.img}
+                alt="Фото профиля"
+              />
+
+              <Box
+                sx={{
+                  flex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 1,
                 }}
               >
-                {status || 'Выберите статус'}
-              </Button>
-              <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-                {statuses.map((statusOption) => (
-                  <MenuItem
-                    key={statusOption.id}
-                    onClick={() => handleStatusChange(statusOption)}
-                    sx={{ color: '#000', '&:hover': { backgroundColor: '#f0f0f0' } }} // Черный текст
-                  >
-                    {statusOption.name}
-                  </MenuItem>
-                ))}
-              </Menu>
+                <Typography
+                  variant="h4"
+                  component="div"
+                  sx={{
+                    color: '#1a1a1a',
+                    fontWeight: 600,
+                    letterSpacing: '-0.5px',
+                  }}
+                >
+                  {cards.fullName}
+                </Typography>
+                <Typography
+                  variant="h5"
+                  component="div"
+                  sx={{
+                    color: '#666',
+                    fontWeight: 500,
+                  }}
+                >
+                  {cards.speciality}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  gap: 2,
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 600,
+                    color: '#1a1a1a',
+                    fontSize: '1.1rem',
+                  }}
+                >
+                  Статус кандидата
+                </Typography>
+                <Button
+                  onClick={handleClick}
+                  variant="contained"
+                  sx={{
+                    color: '#fff',
+                    backgroundColor: '#1a1a1a',
+                    borderRadius: '8px',
+                    padding: '12px 24px',
+                    textTransform: 'none',
+                    fontWeight: 500,
+                    fontSize: '1rem',
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      backgroundColor: '#333',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    },
+                  }}
+                  endIcon={<ArrowDropDownIcon />}
+                >
+                  {status || 'Выберите статус'}
+                </Button>
+
+                <Menu
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                  PaperProps={{
+                    sx: {
+                      mt: 1,
+                      borderRadius: '8px',
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                    },
+                  }}
+                >
+                  {statuses.map((statusOption) => (
+                    <MenuItem
+                      key={statusOption.id}
+                      onClick={() => handleStatusChange(statusOption)}
+                      sx={{
+                        color: '#1a1a1a',
+                        fontSize: '0.95rem',
+                        padding: '10px 24px',
+                        '&:hover': {
+                          backgroundColor: '#f5f5f5',
+                        },
+                      }}
+                    >
+                      {statusOption.name}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
             </Box>
           </Box>
-        </Box>
 
-        <CardContent sx={{ padding: '26px 74px', flex: 1 }}>
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
-            <PhoneIcon sx={{ color: '#1E88E5' }} />
-            <Typography variant="body2" sx={{ color: '#333333' }}>
-              {cards.phone}
-            </Typography>
-          </Stack>
+          <CardContent
+            sx={{
+              padding: '26px 74px',
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginBottom: 2 }}
+            >
+              <PhoneIcon sx={{ color: '#1E88E5', fontSize: 24 }} />
+              <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
+                {cards.phone}
+              </Typography>
+            </Stack>
 
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
-            <WorkIcon sx={{ color: '#43A047' }} />
-            <Typography variant="body2" sx={{ color: '#333333' }}>
-              Experience: {cards.experience}
-            </Typography>
-          </Stack>
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginBottom: 2 }}
+            >
+              <WorkIcon sx={{ color: '#43A047', fontSize: 24 }} />
+              <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
+                Experience: {cards.experience}
+              </Typography>
+            </Stack>
 
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
-            <EmailIcon sx={{ color: '#E53935' }} />
-            <Typography variant="body2" sx={{ color: '#333333' }}>
-              Email: {cards.email}
-            </Typography>
-          </Stack>
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginBottom: 2 }}
+            >
+              <EmailIcon sx={{ color: '#E53935', fontSize: 24 }} />
+              <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
+                Email: {cards.email}
+              </Typography>
+            </Stack>
 
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
-            <VisibilityIcon sx={{ color: '#FB8C00' }} />
-            <Typography variant="body2" sx={{ color: '#333333' }}>
-              Status: {cards?.Status?.status}
-            </Typography>
-          </Stack>
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
-            <WatchLaterRoundedIcon />
-            <Typography variant="body2" sx={{ color: '#333333' }}>
-              Date of creation: {cards.createdAt}
-            </Typography>
-          </Stack>
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
-            <Typography variant="body2" sx={{ color: '#333333' }}>
-              {cards.city}
-            </Typography>
-          </Stack>
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
-            <Typography variant="body2" sx={{ color: '#333333' }}>
-              {cards.salary}
-            </Typography>
-          </Stack>
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
-            <Typography variant="body2" sx={{ color: '#333333' }}>
-              {cards.description}
-            </Typography>
-          </Stack>
-          <ButtonGroup size="lg" aria-label="soft button group">
-            <Link to="/candidate">
-              <Button
-                variant={variant}
-                size="sm"
-                color="error"
-                aria-label="danger button group"
-                onClick={createOnClick('outlined')}
-              >
-                Назад
-              </Button>
-            </Link>
-          </ButtonGroup>
-        </CardContent>
-      </Card>
-    </>
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginBottom: 2 }}
+            >
+              <VisibilityIcon sx={{ color: '#FB8C00', fontSize: 24 }} />
+              <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
+                Status: {cards?.Status?.status}
+              </Typography>
+            </Stack>
+
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginBottom: 2 }}
+            >
+              <WatchLaterRoundedIcon sx={{ color: '#9C27B0', fontSize: 24 }} />
+              <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
+                Date of creation: {cards.createdAt}
+              </Typography>
+            </Stack>
+
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginBottom: 2 }}
+            >
+              <LocationOnIcon sx={{ color: '#2196F3', fontSize: 24 }} />
+              <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
+                {cards.city}
+              </Typography>
+            </Stack>
+
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginBottom: 2 }}
+            >
+              <MonetizationOnIcon sx={{ color: '#4CAF50', fontSize: 24 }} />
+              <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
+                {cards.salary}
+              </Typography>
+            </Stack>
+
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginBottom: 2 }}
+            >
+              <DescriptionIcon sx={{ color: '#607D8B', fontSize: 24 }} />
+              <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
+                {cards.description}
+              </Typography>
+            </Stack>
+
+            <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <Link to="/candidate" style={{ textDecoration: 'none' }}>
+                <Button
+                  variant={variant}
+                  size="large"
+                  color="error"
+                  aria-label="danger button group"
+                  onClick={createOnClick('outlined')}
+                  startIcon={<ArrowBackIcon />}
+                  sx={{
+                    minWidth: '120px',
+                    fontSize: '1.1rem',
+                    padding: '8px 24px',
+                  }}
+                >
+                  Назад
+                </Button>
+              </Link>
+            </Box>
+          </CardContent>
+        </Card>
+      </Container>
+    </Box>
   );
 }

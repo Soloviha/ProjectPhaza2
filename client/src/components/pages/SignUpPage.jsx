@@ -1,4 +1,5 @@
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import MailIcon from '@mui/icons-material/Mail';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {
@@ -11,11 +12,9 @@ import {
   InputLabel,
 } from '@mui/material';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import MailIcon from '@mui/icons-material/Mail';
 
 export default function LoginPage({ signUpHandler }) {
   const [variant, setVariant] = React.useState('outlined');
@@ -35,21 +34,25 @@ export default function LoginPage({ signUpHandler }) {
   };
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        backgroundImage: 'url("../../../public/IMG_1846.jpg")',
+    <Box
+      sx={{
+        position: 'fixed',
+        top: { xs: '56px', sm: '64px' },
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'url("../../../public/2h-media-unsplash.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        overflow: 'hidden',
       }}
     >
       <Container
-        style={{
-          maxWidth: '400px',
+        sx={{
           padding: '2rem',
           backgroundColor: 'rgba(230, 230, 230, 0.9)',
           borderRadius: '8px',
@@ -58,7 +61,7 @@ export default function LoginPage({ signUpHandler }) {
         <Form
           onSubmit={signUpHandler}
           className="d-flex flex-column align-items-center"
-          style={{ width: '100%' }}
+          sx={{ width: '100%' }}
         >
           <Box
             sx={{
@@ -69,7 +72,7 @@ export default function LoginPage({ signUpHandler }) {
               width: '100%',
             }}
           >
-            <FormControl variant="standard" sx={{ width: '100%' }} type="email">
+            <FormControl variant="standard" sx={{ width: '40%' }} type="email">
               <InputLabel htmlFor="input-with-icon-adornment">Введите имя</InputLabel>
               <Input
                 name="name"
@@ -82,7 +85,7 @@ export default function LoginPage({ signUpHandler }) {
               />
             </FormControl>
 
-            <FormControl variant="standard" sx={{ width: '100%' }} type="email">
+            <FormControl variant="standard" sx={{ width: '40%' }} type="email">
               <InputLabel htmlFor="input-with-icon-adornment">Введите email</InputLabel>
               <Input
                 name="email"
@@ -97,7 +100,7 @@ export default function LoginPage({ signUpHandler }) {
               />
             </FormControl>
 
-            <FormControl variant="standard" sx={{ width: '100%' }} name="password">
+            <FormControl variant="standard" sx={{ width: '40%' }} name="password">
               <InputLabel htmlFor="standard-adornment-password">
                 Введите пароль
               </InputLabel>
@@ -129,6 +132,7 @@ export default function LoginPage({ signUpHandler }) {
               fullWidth
               onClick={createOnClick('outlined')}
               sx={{
+                width: '40%',
                 backgroundColor: 'black',
                 color: 'white',
                 '&:hover': {
@@ -141,6 +145,6 @@ export default function LoginPage({ signUpHandler }) {
           </Box>
         </Form>
       </Container>
-    </div>
+    </Box>
   );
 }
