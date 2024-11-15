@@ -6,8 +6,7 @@ export default function MainPage() {
     <Box
       sx={{
         height: '95vh',
-        backgroundImage:
-          'url("https://bogatyr.club/uploads/posts/2023-03/thumbs/1679419138_bogatyr-club-p-serii-fon-geometriya-vkontakte-9.jpg")',
+        backgroundImage: 'url("../../../public/cleaned_desk_no_logo(2).png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -21,7 +20,6 @@ export default function MainPage() {
         sx={{
           mt: 0,
           mb: 5,
-          // backgroundColor: 'rgba(255, 255, 255, 0.80)',
           borderRadius: '8px',
           padding: '20px',
         }}
@@ -32,7 +30,19 @@ export default function MainPage() {
           gutterBottom
           sx={{ color: 'black', fontFamily: 'sans-serif' }}
         >
-          Welcome to HUNTFLOW!
+          <p>
+            <span
+              style={{
+                background: 'linear-gradient(to right, red, black)',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+                display: 'inline-block',
+              }}
+            >
+              Welcomе
+            </span>{' '}
+            to HUNTFLOW📌
+          </p>
         </Typography>
 
         <Typography

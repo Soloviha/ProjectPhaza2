@@ -1,4 +1,3 @@
-import React from 'react';
 import { Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import Loader from '../HOC/Loader';
