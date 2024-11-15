@@ -8,6 +8,7 @@ import LoginPage from './components/pages/LoginPage';
 import NewCandidate from './components/pages/NewCandidate';
 import SignUpPage from './components/pages/SignUpPage';
 import OneCandidate from './components/ui/OneCandidate';
+import ErrorPage from './components/pages/ErrorPage';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
@@ -16,6 +17,7 @@ function App() {
     {
       path: '/',
       element: <Layout user={user} logoutHandler={logoutHandler} />,
+      errorElement: <ErrorPage/>,
       children: [
         {
           path: '/',

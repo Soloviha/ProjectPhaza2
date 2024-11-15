@@ -315,7 +315,7 @@ export default function OneCandidate() {
             >
               <WatchLaterRoundedIcon sx={{ color: '#9C27B0', fontSize: 24 }} />
               <Typography variant="body1" sx={{ color: '#333333', fontSize: '1.1rem' }}>
-                Date of creation: {cards.createdAt}
+                Date of creation: {cards?.createdAt?.slice(0, 10)}
               </Typography>
             </Stack>
 
@@ -370,7 +370,7 @@ export default function OneCandidate() {
                     padding: '8px 24px',
                   }}
                 >
-                  Назад
+                  Back
                 </Button>
               </Link>
             </Box>
