@@ -60,14 +60,16 @@ export default function CandidatePage() {
 
   return (
     <Box
-      sx={{
-        minHeight: 'calc(100vh - 64px)',
-        backgroundImage: 'url("../../../public/4h-media-unsplash.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        paddingTop: { xs: '56px', sm: '64px' },
-      }}
+    sx={{
+      minHeight: 'calc(100vh - 64px)',
+      background:
+        'linear-gradient(145deg, rgba(30, 30, 30, 0.95), rgba(69, 69, 69, 0.8), rgba(40, 40, 40, 0.9))',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      paddingTop: { xs: '56px', sm: '64px' },
+    }}
+
     >
       <Container className="py-5">
         <Row className="g-4 justify-content-center">
