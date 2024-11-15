@@ -158,7 +158,7 @@ export default function PrimarySearchAppBar({ user, logoutHandler }) {
             Candidate
           </NavLink>
           <NavLink
-            to="/candidate/new'"
+            to="/candidate/new"
             className="nav-link"
             style={{ color: 'white', marginLeft: '20px' }}
           >
