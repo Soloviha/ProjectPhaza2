@@ -80,7 +80,6 @@ function CreateNewRes() {
       <Typography variant="body1" style={{ margin: '5px 0' }}>
         или
       </Typography>
-gi
       <Paper
         style={{
           display: 'flex',
