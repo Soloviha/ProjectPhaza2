@@ -5,8 +5,9 @@ import useUser from './components/hooks/useUser';
 import CandidatePage from './components/pages/CandidatePage';
 import HelloPage from './components/pages/HelloPage';
 import LoginPage from './components/pages/LoginPage';
+import NewCandidate from './components/pages/NewCandidate';
 import SignUpPage from './components/pages/SignUpPage';
-import CandidateCreate from './components/ui/CandidateCreate';
+import OneCandidate from './components/ui/OneCandidate';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
@@ -25,8 +26,12 @@ function App() {
           element: <CandidatePage user={user} />,
         },
         {
+          path: '/candidate/:candidateId',
+          element: <OneCandidate />,
+        },
+        {
           path: '/candidate/new',
-          element: <CandidateCreate />,
+          element: <NewCandidate />,
         },
         {
           element: (
@@ -40,28 +45,11 @@ function App() {
             //   path: '/cards',
             //   element: <CardPage user={user} />,
             // },
-            // {
-            //   path: '/cards/new',
-            //   element: <AddNewResume />,
-            // },
-            // {
-            //   path: '/candidate',
-            //   element: <CandidatePage user={user} />,
-            // },
-            // {
-            //   path: '/cards/new',
-            //   element: <AddCards />,
-            // },
           ],
         },
         {
           element: <ProtectedRouter isAllowed={user.status !== 'logged'} redirect="/" />,
           children: [
-            // {
-            //   path: '/cards',
-            //   element: <CardPage user={user} />,
-            // },
-
             {
               path: '/account/new',
               element: <SignUpPage signUpHandler={signUpHandler} />,

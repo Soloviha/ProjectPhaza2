@@ -53,7 +53,6 @@ export default function LoginPage({ signUpHandler }) {
     >
       <Container
         sx={{
-          maxWidth: '400px',
           padding: '2rem',
           backgroundColor: 'rgba(230, 230, 230, 0.9)',
           borderRadius: '8px',
@@ -73,7 +72,7 @@ export default function LoginPage({ signUpHandler }) {
               width: '100%',
             }}
           >
-            <FormControl variant="standard" sx={{ width: '100%' }} type="email">
+            <FormControl variant="standard" sx={{ width: '40%' }} type="email">
               <InputLabel htmlFor="input-with-icon-adornment">Введите имя</InputLabel>
               <Input
                 name="name"
@@ -86,7 +85,7 @@ export default function LoginPage({ signUpHandler }) {
               />
             </FormControl>
 
-            <FormControl variant="standard" sx={{ width: '100%' }} type="email">
+            <FormControl variant="standard" sx={{ width: '40%' }} type="email">
               <InputLabel htmlFor="input-with-icon-adornment">Введите email</InputLabel>
               <Input
                 name="email"
@@ -101,7 +100,7 @@ export default function LoginPage({ signUpHandler }) {
               />
             </FormControl>
 
-            <FormControl variant="standard" sx={{ width: '100%' }} name="password">
+            <FormControl variant="standard" sx={{ width: '40%' }} name="password">
               <InputLabel htmlFor="standard-adornment-password">
                 Введите пароль
               </InputLabel>
@@ -133,6 +132,7 @@ export default function LoginPage({ signUpHandler }) {
               fullWidth
               onClick={createOnClick('outlined')}
               sx={{
+                width: '40%',
                 backgroundColor: 'black',
                 color: 'white',
                 '&:hover': {

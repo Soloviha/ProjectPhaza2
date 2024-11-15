@@ -9,7 +9,7 @@ candidateRouter
   .get(async (req, res) => {
     try {
       const candidateAll = await Candidate.findAll({
-        include: [{ model: Status, attributes: ['status'] }],
+        include: [{ model: Status, attributes: ['status'] }], order: [['updatedAt', 'DESC']]
       });
       res.status(200).json(candidateAll);
     } catch (error) {
@@ -58,7 +58,13 @@ candidateRouter
   .get(async (req, res) => {
     const { id } = req.params;
     try {
-      const oneCandidate = await Candidate.findByPk(id);
+      const oneCandidate = await Candidate.findByPk(id, {
+        include: [
+          {
+            model: Status,
+          },
+        ],
+      });
       res.status(200).json(oneCandidate);
     } catch (error) {
       res.status(500).send({ message: 'Ошибка получения данных' });
@@ -106,6 +112,8 @@ candidateRouter
       const updateCandidate = await Candidate.findByPk(id);
       res.status(201).json(updateCandidate);
     } catch (error) {
+      console.log(error);
+
       res.status(500).send({ message: 'Ошибка изменения данных' });
     }
   });
@@ -123,12 +131,9 @@ candidateRouter
   })
   .put(verifyAccessToken, async (req, res) => {
     const { id } = req.params;
-    const { statusId, date } = req.body;
+    const { statusId } = req.body;
     try {
-      await Candidate.update(
-        { statusId, date },
-        { where: { id, userId: res.locals.user.id } },
-      );
+      await Candidate.update({ statusId }, { where: { id, userId: res.locals.user.id } });
       const updateStatus = await Candidate.findByPk(id);
       if (!updateStatus) {
         res.status(404).json({ message: 'Ошибка изменения статусв' });

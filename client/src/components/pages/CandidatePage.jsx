@@ -62,6 +62,7 @@ export default function CandidatePage() {
     <Box
       sx={{
         minHeight: 'calc(100vh - 64px)',
+        backgroundImage: 'url("../../../public/4h-media-unsplash.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -71,13 +72,14 @@ export default function CandidatePage() {
       <Container className="py-5">
         <Row className="g-4 justify-content-center">
           {candidate.map((el) => (
-            <CandidateCard
-              key={el.id}
-              candidate={el}
-              createHandler={createHandler}
-              deleteHandler={deleteHandler}
-              updateHandler={updateHandler}
-            />
+            <div className="col-6" key={el.id}>
+              <CandidateCard
+                candidate={el}
+                createHandler={createHandler}
+                deleteHandler={deleteHandler}
+                updateHandler={updateHandler}
+              />
+            </div>
           ))}
         </Row>
       </Container>

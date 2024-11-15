@@ -1,4 +1,4 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography, Box } from '@mui/material';
 import axiosInstance from '../../api/axiosInstance';
 
 export default function CandidateCreate() {
@@ -7,8 +7,6 @@ export default function CandidateCreate() {
   const handleAddNewResume = (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
-    //   formData.status = status;
-    console.log(formData);
 
     axiosInstance
       .post('/cards', formData)
@@ -21,7 +19,7 @@ export default function CandidateCreate() {
   };
 
   return (
-    <form
+    <Box
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -258,6 +256,6 @@ export default function CandidateCreate() {
       >
         Отправить
       </Button>
-    </form>
+    </Box>
   );
 }

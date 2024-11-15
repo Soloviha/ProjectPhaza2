@@ -24,7 +24,7 @@ export default function MainPage() {
         sx={{
           maxWidth: '400px',
           padding: '2rem',
-          backgroundColor: 'rgba(181, 181, 181, 0.9)',
+          backgroundColor: 'rgba(69, 69, 69, 0.9)',
           borderRadius: '8px',
         }}
       >
@@ -32,7 +32,7 @@ export default function MainPage() {
           variant="h2"
           align="center"
           gutterBottom
-          sx={{ color: 'black', fontFamily: 'sans-serif' }}
+          sx={{ color: 'white', fontFamily: 'sans-serif' }}
         >
           <p>
             <span
@@ -52,17 +52,25 @@ export default function MainPage() {
         <Typography
           variant="h5"
           align="center"
-          sx={{ color: 'gray', marginBottom: '40px' }}
+          sx={{ color: 'white', marginBottom: '40px' }}
         >
           Your go-to application for recruiting top-tier talent.
         </Typography>
 
         <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
-          <Typography variant="body1" align="center">
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{ color: 'white', fontFamily: 'sans-serif' }}
+          >
             HUNTFLOW is designed to help you streamline your recruitment process, making
             it easier to connect with highly qualified candidates.
           </Typography>
-          <Typography variant="body1" align="center">
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{ color: 'white', fontFamily: 'sans-serif' }}
+          >
             With powerful tools and analytics, you can make data-driven decisions to
             enhance your hiring strategy.
           </Typography>
