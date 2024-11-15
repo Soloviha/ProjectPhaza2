@@ -1,9 +1,4 @@
-import {
-  Button,
-  TextField,
-  Typography,
-  Paper,
-} from '@mui/material';
+import { Button, Paper, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import axiosInstance from '../../api/axiosInstance';
 
@@ -27,7 +22,7 @@ function CreateNewRes() {
 
   const handleFileSelect = async (event) => {
     const file = event.target.files[0];
-    console.log("Файл выбран:", file);
+    console.log('Файл выбран:', file);
     if (file) {
       const formData = new FormData();
       formData.append('pdf', file);
@@ -42,7 +37,7 @@ function CreateNewRes() {
           setFormData(response.data.extractedData);
           setIsUploadMode(true);
         } else {
-          console.warn("Данные не были извлечены или пустые.");
+          console.warn('Данные не были извлечены или пустые.');
         }
       } catch (error) {
         console.error('Ошибка при загрузке PDF:', error);
@@ -72,17 +67,20 @@ function CreateNewRes() {
           borderRadius: '30px',
           boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.5)',
         }}
-        onMouseOver={(e) => (e.currentTarget.style.background = 'linear-gradient(45deg, #555, #222)')}
-        onMouseOut={(e) => (e.currentTarget.style.background = 'linear-gradient(45deg, #434343, #000000)')}
+        onMouseOver={(e) =>
+          (e.currentTarget.style.background = 'linear-gradient(45deg, #555, #222)')
+        }
+        onMouseOut={(e) =>
+          (e.currentTarget.style.background = 'linear-gradient(45deg, #434343, #000000)')
+        }
       >
         Загрузить резюме
       </Button>
 
       <Typography variant="body1" style={{ margin: '5px 0' }}>
         или
-        <p></p>
       </Typography>
-
+gi
       <Paper
         style={{
           display: 'flex',
@@ -101,16 +99,88 @@ function CreateNewRes() {
           Создать Резюме
         </Typography>
 
-        <TextField name="fullName" label="Имя" variant="outlined" fullWidth required defaultValue={formData.fullName || ''} />
-        <TextField name="speciality" label="Должность" variant="outlined" fullWidth required defaultValue={formData.speciality || ''} />
-        <TextField name="phone" label="Телефон" variant="outlined" fullWidth required defaultValue={formData.phone || ''} />
-        <TextField name="email" label="Почта" variant="outlined" fullWidth required defaultValue={formData.email || ''} />
-        <TextField name="age" label="Возраст" variant="outlined" fullWidth required type="number" defaultValue={formData.age || ''} />
-        <TextField name="city" label="Город" variant="outlined" fullWidth required defaultValue={formData.city || ''} />
-        <TextField name="experience" label="Опыт работы" variant="outlined" fullWidth type="number" defaultValue={formData.experience || ''} />
-        <TextField name="salary" label="Зарплата" variant="outlined" fullWidth type="number" defaultValue={formData.salary || ''} />
-        <TextField name="description" label="Описание" variant="outlined" fullWidth multiline rows={4} defaultValue={formData.description || ''} />
-        <TextField name="img" label="Ссылка на фото кандидата" variant="outlined" fullWidth type="url" defaultValue={formData.img || ''} />
+        <TextField
+          name="fullName"
+          label="Имя"
+          variant="outlined"
+          fullWidth
+          required
+          defaultValue={formData.fullName || ''}
+        />
+        <TextField
+          name="speciality"
+          label="Должность"
+          variant="outlined"
+          fullWidth
+          required
+          defaultValue={formData.speciality || ''}
+        />
+        <TextField
+          name="phone"
+          label="Телефон"
+          variant="outlined"
+          fullWidth
+          required
+          defaultValue={formData.phone || ''}
+        />
+        <TextField
+          name="email"
+          label="Почта"
+          variant="outlined"
+          fullWidth
+          required
+          defaultValue={formData.email || ''}
+        />
+        <TextField
+          name="age"
+          label="Возраст"
+          variant="outlined"
+          fullWidth
+          required
+          type="number"
+          defaultValue={formData.age || ''}
+        />
+        <TextField
+          name="city"
+          label="Город"
+          variant="outlined"
+          fullWidth
+          required
+          defaultValue={formData.city || ''}
+        />
+        <TextField
+          name="experience"
+          label="Опыт работы"
+          variant="outlined"
+          fullWidth
+          type="number"
+          defaultValue={formData.experience || ''}
+        />
+        <TextField
+          name="salary"
+          label="Зарплата"
+          variant="outlined"
+          fullWidth
+          type="number"
+          defaultValue={formData.salary || ''}
+        />
+        <TextField
+          name="description"
+          label="Описание"
+          variant="outlined"
+          fullWidth
+          multiline
+          rows={4}
+          defaultValue={formData.description || ''}
+        />
+        <TextField
+          name="img"
+          label="Ссылка на фото кандидата"
+          variant="outlined"
+          fullWidth
+          type="url"
+          defaultValue={formData.img || ''}
+        />
 
         <Button
           variant="contained"
