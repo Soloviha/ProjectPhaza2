@@ -156,7 +156,7 @@ export default function PrimarySearchAppBar({ user, logoutHandler }) {
             >
               Resume
             </Typography>
-            </NavLink>
+              </NavLink>
           <NavLink
             to="/candidate"
             className="nav-link"

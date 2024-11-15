@@ -12,25 +12,22 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(User, { foreignKey: 'userId' });
     }
   }
-  Candidate.init(
-    {
-      img: DataTypes.TEXT,
-      fullName: DataTypes.STRING,
-      phone: DataTypes.INTEGER,
-      email: DataTypes.STRING,
-      age: DataTypes.INTEGER,
-      city: DataTypes.STRING,
-      speciality: DataTypes.STRING,
-      experience: DataTypes.TEXT,
-      salary: DataTypes.INTEGER,
-      description: DataTypes.TEXT,
-      statusId: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER,
-    },
-    {
-      sequelize,
-      modelName: 'Candidate',
-    },
-  );
+  Candidate.init({
+    img: DataTypes.TEXT,
+    fullName: DataTypes.STRING,
+    phone: DataTypes.STRING,
+    email: DataTypes.STRING,
+    age: DataTypes.INTEGER,
+    city: DataTypes.STRING,
+    speciality: DataTypes.STRING,
+    experience: DataTypes.TEXT,
+    salary: DataTypes.INTEGER,
+    description: DataTypes.TEXT,
+    statusId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Candidate',
+  });
   return Candidate;
 };
