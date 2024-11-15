@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const authRouter = require('./routes/authRouter');
 const tokensRouter = require('./routes/tokenRouter');
 const candidateRouter = require('./routes/candidateRouter');
+const statusRouter = require('./routes/statusRouter');
 const addCandidateRouter = require('./routes/addCandidateRouter');
 
 const app = express();
@@ -18,5 +19,6 @@ app.use('/api/tokens', tokensRouter);
 app.use('/api/cards', candidateRouter);
 app.use('/api/upload-pdf', addCandidateRouter);
 
+app.use('/api/statuses', statusRouter)
 
 module.exports = app;

@@ -31,7 +31,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
         justifyContent: 'center',
         margin: '20px',
         marginLeft: '150px',
-        maxWidth: 400,
+        maxWidth: 600,
         borderRadius: 3,
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
         background: '#FFFFFF',

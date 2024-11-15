@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
-const { Candidate } = require('../../db/models');
+const { Candidate, Status } = require('../../db/models');
 
 const candidateRouter = Router();
 
@@ -9,7 +9,7 @@ candidateRouter
   .get(async (req, res) => {
     try {
       const candidateAll = await Candidate.findAll({
-        include: [{ model: Status, attributes: ['status'] }],
+        include: [{ model: Status, attributes: ['status'] }], order: [['updatedAt', 'DESC']]
       });
       res.status(200).json(candidateAll);
     } catch (error) {
@@ -29,7 +29,7 @@ candidateRouter
         experience,
         salary,
         description,
-        statusId
+        statusId,
       } = req.body;
       const newCandidate = await Candidate.create({
         img,
@@ -48,7 +48,7 @@ candidateRouter
       res.status(200).json(newCandidate);
     } catch (error) {
       console.log(error);
-      
+
       res.status(500).send({ message: 'Ошибка создания резюме' });
     }
   });
@@ -58,7 +58,13 @@ candidateRouter
   .get(async (req, res) => {
     const { id } = req.params;
     try {
-      const oneCandidate = await Candidate.findByPk(id);
+      const oneCandidate = await Candidate.findByPk(id, {
+        include: [
+          {
+            model: Status,
+          },
+        ],
+      });
       res.status(200).json(oneCandidate);
     } catch (error) {
       res.status(500).send({ message: 'Ошибка получения данных' });
@@ -107,7 +113,7 @@ candidateRouter
       res.status(201).json(updateCandidate);
     } catch (error) {
       console.log(error);
-      
+
       res.status(500).send({ message: 'Ошибка изменения данных' });
     }
   });
@@ -127,10 +133,7 @@ candidateRouter
     const { id } = req.params;
     const { statusId } = req.body;
     try {
-      await Candidate.update(
-        { statusId},
-        { where: { id, userId: res.locals.user.id } },
-      );
+      await Candidate.update({ statusId }, { where: { id, userId: res.locals.user.id } });
       const updateStatus = await Candidate.findByPk(id);
       if (!updateStatus) {
         res.status(404).json({ message: 'Ошибка изменения статусв' });
