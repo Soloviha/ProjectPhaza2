@@ -30,8 +30,19 @@ function CreateNewRes() {
   };
 
   return (
+    < div  style={{
+      height: '100%',
+      backgroundImage: 'url("../../../public/IMG_1846.jpg")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
     <form
       style={{
+        width: '500px',
         display: 'flex',
         flexDirection: 'column',
         gap: '16px',
@@ -268,6 +279,7 @@ function CreateNewRes() {
         Отправить
       </Button>
     </form>
+    </div>
   );
 }
 

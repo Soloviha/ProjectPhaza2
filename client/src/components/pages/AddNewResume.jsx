@@ -2,7 +2,7 @@ import CreateNewRes from '../ui/CreateNewRes'
 
 export default function AddNewResume() {
   return (
-    <div>
+    <div >
         <CreateNewRes />
     </div>
   )
