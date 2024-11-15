@@ -133,7 +133,7 @@ export default function CandidateCard({ candidate, deleteHandler, updateHandler 
         <Stack direction="row" alignItems="center" spacing={1} sx={{ marginBottom: 1 }}>
           <WatchLaterRoundedIcon />
           <Typography variant="body2" sx={{ color: '#333333' }}>
-            Date of creation: {candidate.createdAt.slice(0, 10)}
+            Date of creation: {candidate?.createdAt?.slice(0, 10)}
           </Typography>
         </Stack>
         <Stack spacing={1} sx={{ alignItems: 'center', marginBottom: 1 }}>

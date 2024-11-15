@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const path = require('path')
 const authRouter = require('./routes/authRouter');
 const tokensRouter = require('./routes/tokenRouter');
 const candidateRouter = require('./routes/candidateRouter');
@@ -19,5 +20,10 @@ app.use('/api/tokens', tokensRouter);
 app.use('/api/cards', candidateRouter);
 app.use('/api/upload-pdf', addCandidateRouter);
 app.use('/api/statuses', statusRouter);
+
+app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+});
 
 module.exports = app;
