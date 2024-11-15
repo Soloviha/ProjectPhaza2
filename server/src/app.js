@@ -18,7 +18,6 @@ app.use('/api/account', authRouter);
 app.use('/api/tokens', tokensRouter);
 app.use('/api/cards', candidateRouter);
 app.use('/api/upload-pdf', addCandidateRouter);
-
-app.use('/api/statuses', statusRouter)
+app.use('/api/statuses', statusRouter);
 
 module.exports = app;

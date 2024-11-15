@@ -3,13 +3,17 @@ import { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import axiosInstance from '../../api/axiosInstance';
 import CandidateCard from '../ui/CandidateCard';
+import TabBar from '../ui/TabBar';
 
 export default function CandidatePage() {
-  const [candidate, setCandidate] = useState([]);
+  const [candidates, setCandidates] = useState([]);
+  const [filteredCandidates, setFilteredCandidates] = useState([]);
+
   useEffect(() => {
     try {
       axiosInstance.get(`/cards`).then(({ data }) => {
-        setCandidate(data);
+        setCandidates(data);
+        setFilteredCandidates(data);
       });
     } catch (error) {
       console.log({ message: error });
@@ -23,7 +27,9 @@ export default function CandidatePage() {
       const newCard = Object.fromEntries(new FormData(e.target));
       const res = await axiosInstance.post('/cards', newCard);
       if (res.status === 200) {
-        setCandidate((value) => [...value, res.data]);
+        const updatedCandidates = [...candidates, res.data];
+        setCandidates(updatedCandidates);
+        setFilteredCandidates(updatedCandidates);
       }
     } catch (error) {
       console.log({ message: error });
@@ -37,8 +43,14 @@ export default function CandidatePage() {
       const data = e.target;
       const newData = Object.fromEntries(new FormData(data));
       const res = await axiosInstance.put(`/cards/${id}`, newData);
-      const newCandidate = await res.data;
-      setCandidate((prev) => prev.map((el) => (el.id === id ? newCandidate : el)));
+      const newCandidate = res.data;
+
+      const updatedCandidates = candidates.map((el) =>
+        el.id === id ? newCandidate : el,
+      );
+
+      setCandidates(updatedCandidates);
+      setFilteredCandidates(updatedCandidates);
       e.target.reset();
     } catch (error) {
       console.log({ message: error });
@@ -50,7 +62,9 @@ export default function CandidatePage() {
     try {
       const res = await axiosInstance.delete(`/cards/${id}`);
       if (res.status === 200) {
-        setCandidate((value) => value.filter((el) => el.id !== id));
+        const updatedCandidates = candidates.filter((el) => el.id !== id);
+        setCandidates(updatedCandidates);
+        setFilteredCandidates(updatedCandidates);
       }
     } catch (error) {
       console.log({ message: error });
@@ -61,8 +75,8 @@ export default function CandidatePage() {
   return (
     <Box
       sx={{
-        minHeight: 'calc(100vh - 64px)',
-        backgroundImage: 'url("../../../public/4h-media-unsplash.jpg")',
+        background:
+          'linear-gradient(145deg, rgba(30, 30, 30, 0.95), rgba(69, 69, 69, 0.8), rgba(40, 40, 40, 0.9))',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -70,8 +84,9 @@ export default function CandidatePage() {
       }}
     >
       <Container className="py-5">
+        <TabBar candidates={candidates} setFilteredCandidates={setFilteredCandidates} />
         <Row className="g-4 justify-content-center">
-          {candidate.map((el) => (
+          {filteredCandidates.map((el) => (
             <div className="col-6" key={el.id}>
               <CandidateCard
                 candidate={el}
