@@ -4,24 +4,26 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import WatchLaterRoundedIcon from '@mui/icons-material/WatchLaterRounded';
 import WorkIcon from '@mui/icons-material/Work';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useState } from 'react';
-import { Card, Stack } from '@mui/material';
+import { Button, Card, Menu, MenuItem, Stack } from '@mui/material';
 import { Link, useParams } from 'react-router-dom';
 import axiosInstance from '../../api/axiosInstance';
 import { useEffect } from 'react';
-
 
 export default function OneCandidate() {
   const [variant, setVariant] = React.useState('outlined');
   const createOnClick = (value) => () => {
     setVariant(value);
   };
+  const [status, setStatus] = useState('');
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [statuses, setStatuses] = useState([]);
 
   const [cards, setCards] = useState({
     img: '',
@@ -42,12 +44,55 @@ export default function OneCandidate() {
       .get(`/cards/${candidateId}`)
       .then(({ data }) => setCards(data))
       .catch((err) => console.log(err));
+  }, [candidateId]);
+
+  useEffect(() => {
+    axiosInstance
+      .get('/statuses')
+      .then(({ data }) => setStatuses(data))
+      .catch((err) => console.log(err));
   }, []);
+
+  console.log(statuses);
+
+  useEffect(() => {
+    const fetchCandidate = async () => {
+      try {
+        const response = await axiosInstance.get(`/cards/${candidateId}`);
+        // console.log(response);
+
+        setStatus(response.data.statusId); // Предполагаем, что статус имеет поле name
+      } catch (error) {
+        console.error('Ошибка получения кандидата:', error);
+      }
+    };
+    fetchCandidate();
+  }, [candidateId]);
+
+  console.log(status);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleStatusChange = async (newStatus) => {
+    try {
+      await axiosInstance.put(`/cards/status/${candidateId}`, { statusId: newStatus.id });
+      setStatus(newStatus.status); 
+      handleClose(); 
+    } catch (error) {
+      console.error('Ошибка изменения статуса:', error);
+    }
+  };
+
+
 
   return (
     <>
-      <Card
-      >
+      <Card>
         <Box
           sx={{
             background: '#f5f5f5',
@@ -89,6 +134,45 @@ export default function OneCandidate() {
               >
                 {cards.speciality}
               </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                margin: 2,
+              }}
+            >
+              <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#333' }}>
+                Статус кандидата
+              </Typography>
+              <Button
+                onClick={handleClick}
+                variant="outlined"
+                sx={{
+                  color: '#fff', 
+                  borderColor: '#000', 
+                  '&:hover': { borderColor: '#333', backgroundColor: '#f0f0f' },
+                  borderRadius: 2,
+                  padding: '10px 20px',
+                  textTransform: 'none',
+                  fontWeight: 'bold',
+                  backgroundColor: '#000', 
+                }}
+              >
+                {status || 'Выберите статус'}
+              </Button>
+              <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+                {statuses.map((statusOption) => (
+                  <MenuItem
+                    key={statusOption.id}
+                    onClick={() => handleStatusChange(statusOption)}
+                    sx={{ color: '#000', '&:hover': { backgroundColor: '#f0f0f0' } }} // Черный текст
+                  >
+                    {statusOption.name}
+                  </MenuItem>
+                ))}
+              </Menu>
             </Box>
           </Box>
         </Box>
